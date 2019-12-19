@@ -84,6 +84,15 @@ const data = [{
         thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+    },
+    {
+        title: 'My Personal Touch',
+        date: 'Jan 19 2015',
+        firstParagraph: 'My daughter was born today.',
+
+        secondParagraph: 'I named her Delanie Leigh Jefferson.',
+
+        thirdParagraph: 'She is my world and if anyone ever hurts her, I will kill them.'
     }
 ];
 
@@ -123,7 +132,7 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
     entry.appendChild(expButton);
     entry.classList.add('article');
     entryDate.classList.add('date');
-    expButton.classList.add('expandButton', 'close');
+    expButton.classList.add('expandButton');
     entryTitle.textContent = title;
     entryDate.textContent = date;
     entryOneP.textContent = firstParagraph;
@@ -131,20 +140,15 @@ function createArticle(title, date, firstParagraph, secondParagraph, thirdParagr
     entryThreeP.textContent = thirdParagraph;
     expButton.textContent = 'expand';
 
+
     // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
-    expButton.addEventListener('click', () => {
-        expButton.classList.toggle('close');
+    expButton.addEventListener('click', (event) => {
+        // expButton.classList.toggle('close');
         entry.classList.toggle('article-open');
     });
-    // entry.scroll({
-    //   top: 100,
-    //   left: 100,
-    //   behavior: 'smooth'
-    // });
-
     // Step 3: return the entire component.
     return entry;
-}
+};
 // Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
 // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
